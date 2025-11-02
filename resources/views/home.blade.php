@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Al Rasyid Villa</title>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,7 +73,7 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      margin: 0 4px;
+      /* margin: 0 4px; <--- DIHAPUS */
     }
 
     .lang-switch a:hover {
@@ -84,7 +83,7 @@
     /* Hero Section */
     .hero {
       position: relative;
-      height: 120vh;
+      height: 100vh;
       overflow: hidden;
       background-color: #a99077;
     }
@@ -128,7 +127,7 @@
       font-weight: 400;
       color: white;
       text-shadow: 0 3px 10px rgba(0,0,0,0.4);
-      font-size: 6rem;
+      font-size: 5rem; /* <--- DIMODIFIKASI (dari 6rem) */
       letter-spacing: 1px;
       margin-bottom: 10px;
       animation: fadeText 1.5s ease;
@@ -138,7 +137,7 @@
 
     .hero-content p {
       font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
+      font-size: 1rem; /* <--- DIMODIFIKASI (dari 1.1rem) */
       letter-spacing: 3px;
       color: white;
       text-shadow: 0 0px 6px rgba(0,0,0,0.3);
@@ -151,7 +150,7 @@
       to { opacity: 1; transform: translateY(20); }
     }
 
-    .btn-main {
+    .btn-main { 
       background-color: rgba(169, 144, 119, 0.95);
       color: white;
       border: none;
@@ -179,6 +178,49 @@
         opacity: 0;
       }
     }
+    
+    /* === KODE TOMBOL CHECK AVAILABILITY DENGAN GAYA ELEGAN === */
+    .btn-availability {
+      position: absolute; 
+      bottom: 50px;
+      right: 50px;
+      
+      /* --- MODIFIKASI TAMPILAN --- */
+      background-color: white; 
+      color: #a99077; 
+      border: 1px solid #a99077; 
+      
+      /* --- MODIFIKASI FONT --- */
+      font-family: 'Playfair Display', serif; 
+      font-weight: 400; 
+      letter-spacing: 3px; 
+      font-size: 1rem; /* <--- DIMODIFIKASI (dari 1.1rem) */
+
+      /* --- MODIFIKASI UKURAN TOMBOL --- */
+      padding: 15px 30px; /* <--- DIMODIFIKASI (dari 18px 40px) */
+      border-radius: 0; 
+      
+      text-decoration: none;
+      z-index: 5;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+      transition: all 0.3s ease;
+    }
+
+    .btn-availability:hover {
+      background-color: #a99077; 
+      color: white; 
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .btn-availability {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    }
+    /* === END KODE TOMBOL BARU === */
 
     /* About Section */
     .about-section {
@@ -247,12 +289,11 @@
 </head>
 
 <body>
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="menu-area">
       <div class="menu-icon">☰ Menu</div>
       <div class="lang-switch">
-        <a href="#">EN</a> | <a href="#">ID</a>
+        <a href="#"> English</a>
       </div>
     </div>
     <a class="navbar-brand" href="#">
@@ -261,7 +302,6 @@
     <div style="width: 160px;"></div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="hero" id="hero">
     <img src="images/villa.jpg" class="active" alt="">
     <img src="images/villa1.jpg" alt="">
@@ -271,12 +311,11 @@
       <div class="hero-content text-center">
         <h1>Serenity in the Highlands</h1>
         <p>AL RASYID PUNCAK</p>
-        <a href="#about" class="btn-main mt-3">Find Out More</a>
       </div>
     </div>
+    <a href="#" class="btn-availability">Check Availability</a>
   </section>
 
-  <!-- About Section -->
   <section class="about-section" id="about">
     <div class="container">
       <div class="row align-items-center">
@@ -302,7 +341,6 @@
     </div>
   </section>
 
-  <!-- Modal Video -->
   <div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content bg-transparent border-0">
