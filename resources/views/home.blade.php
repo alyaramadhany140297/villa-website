@@ -25,7 +25,7 @@
       left: 0;
       width: 100%;
       background-color: rgba(169, 144, 119, 0.95);
-      padding: 2px 10px;
+      padding: 0px 10px;
       transition: all 0.5s ease;
       z-index: 1000;
       display: flex;
@@ -46,11 +46,11 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      transition: all 0.4s ease;
+      transition: all 0.4s ease;   
     }
 
     .navbar-brand img {
-      height: 70px;
+      height: 60px;
       transition: all 0.4s ease;
     }
 
@@ -120,6 +120,7 @@
       color: white;
       text-align: center;
       z-index: 2;
+      overflow: hidden;
     }
 
     .hero-content h1 {
@@ -131,6 +132,8 @@
       letter-spacing: 1px;
       margin-bottom: 10px;
       animation: fadeText 1.5s ease;
+      position: relative;
+      z-index: 5;
     }
 
     .hero-content p {
@@ -138,7 +141,9 @@
       font-size: 1.1rem;
       letter-spacing: 3px;
       color: white;
-      text-shadow: 0 px 6px rgba(0,0,0,0.3);
+      text-shadow: 0 0px 6px rgba(0,0,0,0.3);
+      z-index: 5;
+      position: relative;
     }
 
     @keyframes fadeText {
@@ -155,10 +160,24 @@
       font-weight: 500;
       text-decoration: none;
       margin-top: 10px;
+      z-index: 5;
+      position: relative;
     }
 
     .btn-main:hover {
       background-color: rgba(157, 145, 133, 0.95);
+    
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     /* About Section */
@@ -169,7 +188,7 @@
     }
 
     .video-box {
-      background-image: url('images/video-thumbnail.jpg');
+      background-image: url('images/video1.mp4');
       background-size: cover;
       background-position: center;
       height: 420px;
@@ -237,9 +256,9 @@
       </div>
     </div>
     <a class="navbar-brand" href="#">
-      <img src="images/logo.png" alt="Al Rasyid Villa">
+      <img src="images/logo villa.png" alt="">
     </a>
-    <div style="width: 190px;"></div>
+    <div style="width: 160px;"></div>
   </nav>
 
   <!-- Hero Section -->
@@ -261,7 +280,6 @@
   <section class="about-section" id="about">
     <div class="container">
       <div class="row align-items-center">
-        <!-- Video kiri -->
         <div class="col-lg-6 mb-4 mb-lg-0">
           <div class="video-box" data-bs-toggle="modal" data-bs-target="#videoModal">
             <div class="video-overlay">
@@ -273,7 +291,6 @@
           </div>
         </div>
 
-        <!-- Teks kanan -->
         <div class="col-lg-6 text-content">
           <h6>LIBURAN TENANG DENGAN VIEW GUNUNG & CITY LIGHT</h6>
           <p>Sedang mencari tempat liburan dengan suasana tenang, udara sejuk, dan pemandangan yang menakjubkan? Villa Al Rasyid, yang berlokasi di kawasan Puncak Bogor, siap menjadi destinasi sempurna untuk Anda dan keluarga.</p>
@@ -305,14 +322,33 @@
       navbar.classList.toggle('scrolled', window.scrollY > 80);
     });
 
-    // Hero slideshow
+    // Hero slideshow + daun animasi
     const slides = document.querySelectorAll('.hero img');
+    const overlay = document.querySelector('.overlay');
     let current = 0;
+
+    function createLeaf() {
+      const leaf = document.createElement('div');
+      leaf.classList.add('leaf');
+      leaf.style.left = Math.random() * 100 + 'vw';
+      leaf.style.animationDuration = (5 + Math.random() * 5) + 's';
+      overlay.appendChild(leaf);
+      setTimeout(() => leaf.remove(), 10000);
+    }
+
     function changeSlide() {
       slides[current].classList.remove('active');
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
+
+      // 🌿 munculkan daun hanya di slide ke-2
+      if (current === 1) {
+        for (let i = 0; i < 10; i++) {
+          setTimeout(createLeaf, i * 500);
+        }
+      }
     }
+
     setInterval(changeSlide, 4000);
 
     // Video modal autoplay

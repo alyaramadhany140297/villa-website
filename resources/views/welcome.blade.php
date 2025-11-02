@@ -69,7 +69,6 @@
         .hero button:hover {
             background-color: #A66E47;
         }
-
         footer {
             background-color: #7a6452;
             color: white;
