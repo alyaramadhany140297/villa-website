@@ -107,142 +107,121 @@
       @media (max-width: 768px) {
         .btn-availability { bottom: 20px; right: 20px; padding: 12px 25px; font-size: 1rem; }
       }
-
-      /* ====== ABOUT: layout mirip gambar referensi ====== */
-.about-section{
-  --left: clamp(360px, 34vw, 520px); /* lebar strip kiri; atur angka ini saja */
+/* ======= ABOUT SECTION FINAL (VIDEO SEGI EMPAT + TEKS KANAN + FULL BLUR) ======= */
+.about-section {
+  position: relative;
   min-height: 100dvh;
-  padding: 0;
   background: url("images/villa.jpg") center/cover no-repeat fixed;
-  isolation: isolate;
-}
-.about-section::after{
-  content:""; position:absolute; inset:0;
-  background: rgba(0,0,0,.35); z-index:0; /* gelap tipis seluruh foto */
-}
-.about-section .container{ max-width:100%; padding:0; }
-.about-section .row{
-  display:grid !important;
-  grid-template-columns: var(--left) 1fr;
-  min-height: 100dvh;
-  align-items: stretch !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* Kiri: video strip penuh tinggi */
-.about-section .video-box{
-  position:relative; z-index:1;
-  width:100%; min-height:100dvh; border-radius:0;
-  background:#d9d3cd; display:grid; place-items:center;
+/* Lapisan blur seluruh background */
+.about-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: blur(10px) brightness(0.6);
+  transform: scale(1.1);
+  z-index: 0;
 }
-.about-section .video-overlay{ width:100%; height:100%; cursor:pointer; }
-.about-section .play-btn i{ font-size:100px; color:rgba(255,255,255,.85); filter:drop-shadow(0 6px 18px rgba(0,0,0,.35)); }
-.about-section .play-btn p{ margin-top:12px; letter-spacing:.25em; font-family:"Playfair Display",serif; font-size:12px; color:rgba(0,0,0,.45); }
 
-/* Kanan: panel kaca menyelimuti penuh */
-.about-section .text-content{
-  position:relative; z-index:1;
-  margin:0 !important; width:auto !important;
-  min-height:100dvh; display:flex; align-items:center; justify-content:center;
-  background: rgba(255,255,255,.16);
-  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,.22);
-  border-left: 0;           /* tanpa garis di batas tengah */
-  border-radius: 0;         /* panel flat seperti contoh */
-  padding: 6vh 6vw;         /* ruang dalam panel */
+/* wrapper utama: kiri video, kanan teks */
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  width: 85%;
+  max-width: 1200px;
 }
-.about-section .text-content > *{
-  max-width: 820px;         /* kolom teks tidak melebar penuh */
+
+/* ====== Kotak video segi empat ====== */
+.video-box {
+  position: relative;
+  background: #d9d3cd;
+  border-radius: 20px;
+  width: 420px;
+  height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,.25);
+}
+
+.video-overlay {
   width: 100%;
-  text-align: left;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  cursor: pointer;
 }
 
-/* Mobile: tumpuk */
-@media (max-width: 991px){
-  .about-section{ min-height:auto; background-attachment:scroll; }
-  .about-section .row{ grid-template-columns:1fr !important; min-height:auto; }
-  .about-section .video-box{ min-height:220px; }
-  .about-section .text-content{
-    min-height:auto; border-radius:14px; padding:18px;
+.play-btn i {
+  font-size: 80px;
+  color: rgba(255,255,255,.9);
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+  transition: transform .3s ease;
+}
+.play-btn i:hover {
+  transform: scale(1.1);
+}
+.play-btn p {
+  margin-top: 10px;
+  letter-spacing: .25em;
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  color: rgba(0,0,0,.6);
+}
+
+/* ====== Kotak teks kanan ====== */
+.text-content {
+  flex: 1;
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+  box-shadow: 0 10px 40px rgba(0,0,0,.25);
+}
+
+.text-content h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.text-content p {
+  line-height: 1.7;
+  font-size: 16px;
+  color: rgba(255,255,255,.9);
+}
+
+/* ====== Responsif ====== */
+@media (max-width: 991px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    width: 90%;
+  }
+  .video-box {
+    width: 100%;
+    height: 45vh;
+  }
+  .text-content {
+    width: 100%;
+    padding: 25px;
+    text-align: center;
   }
 }
 
-/* Glass panel seperti semula */
-.about-section .text-content{
-  position: relative;
-  z-index: 1;
-  background: rgba(255,255,255,.16);          /* bening seperti sebelumnya */
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,.22);
-  color:#fff;
-
-  /* animasi awal */
-  opacity: 0;
-  transform: translateY(12px) scale(.98);
-  filter: blur(1px);
-  transition: box-shadow .3s ease;
-  box-shadow: 0 16px 40px rgba(0,0,0,.25);
-}
-
-/* konten di dalam panel agar rapi */
-.about-section .text-content .tc-inner{
-  padding: 28px;
-  border-radius: 14px;
-}
-
-/* saat muncul */
-.about-section .text-content.is-in{
-  animation: glassIn .65s cubic-bezier(.22,.8,.2,1) forwards;
-}
-
-/* underline judul h6 yang muncul halus */
-.about-section .text-content h6{
-  margin: 0 0 14px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-align: center;
-  color: #eaeaea;
-  display:inline-block;
-  background: linear-gradient(currentColor,currentColor) left bottom/0 2px no-repeat;
-  padding-bottom:6px;
-}
-.about-section .text-content.is-in h6{
-  animation: h6Underline .6s cubic-bezier(.22,.8,.2,1) .15s forwards;
-}
-
-/* keyframes */
-@keyframes glassIn{
-  0%   {opacity:0; transform: translateY(12px) scale(.98); filter: blur(1px);}
-  100% {opacity:1; transform: none;                     filter: blur(0);}
-}
-@keyframes h6Underline{
-  0%   {background-size:0 2px;}
-  100% {background-size:100% 2px;}
-}
-
-/* hormati prefers-reduced-motion */
-@media (prefers-reduced-motion: reduce){
-  .about-section .text-content{opacity:1; transform:none; filter:none; animation:none;}
-  .about-section .text-content h6{background-size:100% 2px;}
-}
-
-/* ==== ABOUT: paksa layout grid 2 kolom dan video penuh kiri ==== */
-.about-section { --left: clamp(340px, 36vw, 480px); min-height: 100dvh; padding: 0 !important; }
-.about-section .container { max-width: 100% !important; padding: 0 !important; }
-.about-section .row { display: grid !important; grid-template-columns: var(--left) 1fr; min-height: 100dvh; }
-
-/* kolom kiri tempat video HARUS jadi kolom-1, tanpa padding bootstrap */
-.about-section .row > .col-lg-6.mb-4.mb-lg-0 { grid-column: 1 / 2 !important; padding: 0 !important; }
-
-/* kotak VIDEO isi kolom kiri penuh */
-.about-section .video-box{
-  position: relative !important;
-  width: 100% !important;
-  height: auto !important;
-  min-height: 100dvh !important;
-  background: #d9d3cd;
-  overflow: hidden;
-}
 
 /* area klik play menutupi seluruh strip kiri */
 .about-section .video-overlay{ position: absolute !important; inset: 0 !important; display: grid; place-items: center; cursor: pointer; }
@@ -251,7 +230,7 @@
 .about-section .row > .col-lg-6.text-content { grid-column: 2 / -1 !important; margin: 0 !important; width: auto !important; min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; border-radius: 0 0 0 14px; }
 
 /* tombol play */
-.about-section .play-btn i{ font-size: 96px; color: rgba(255,255,255,.9); filter: drop-shadow(0 6px 18px rgba(0,0,0,.35)); }
+.about-section .play-btn i{ font-size: 100px; color: rgba(255,255,255,.9); filter: drop-shadow(0 6px 18px rgba(0,0,0,.35)); } /* Ukuran ikon play dikembalikan */
 
 /* mobile tumpuk */
 @media (max-width: 991px){
@@ -259,12 +238,7 @@
   .about-section .video-box { min-height: 220px !important; }
   .about-section .row > .col-lg-6.text-content { min-height: auto; border-radius: 14px; }
 }
-
-
-
-
-
-
+/* kolom kanan = panel bening */
       /* ===== Facility section ===== */
       .facility-bg { background: #8b725c; padding: 72px 0; color: #111; }
       @media (max-width: 768px){ .facility-bg { padding: 48px 0; } }
