@@ -247,6 +247,475 @@
     /* Lightbox anim */
     #facLightboxImg.lb-in{ animation:facZoom .35s cubic-bezier(.22,.8,.2,1); }
     @keyframes facZoom{ from{transform:scale(.96); opacity:.2} to{transform:scale(1); opacity:1} }
+
+    /* Section Review */
+ body {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 0;
+ }
+
+.review-wrapper {
+  background-color: #f7f1e8;
+  text-align: center;
+  padding: 0px 0;
+}
+
+.stars {
+  color: #FFD700;
+  font-size: 50px;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.review-text {
+  font-size: 30px;
+  color: #333;
+  margin: 20px auto;
+  line-height: 1.6;
+  width: 70%;
+}
+
+.author {
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* ======= FOTO GALLERY (ABSTRAK & RAPI) ======= */
+.photo-layout {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 150px;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 40px auto;
+  justify-content: center;
+}
+
+.photo-layout img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efek hover */
+.photo-layout img:hover {
+  transform: scale(1.05) rotate(0deg);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Pola grid acak tapi simetris */
+.photo-layout img:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+  transform: rotate(-1.5deg);
+}
+.photo-layout img:nth-child(2) {
+  grid-column: span 2;
+  transform: rotate(2deg);
+}
+.photo-layout img:nth-child(3) {
+  grid-row: span 2;
+  transform: rotate(-2deg);
+}
+.photo-layout img:nth-child(4) {
+  grid-column: span 2;
+  transform: rotate(1.5deg);
+}
+.photo-layout img:nth-child(5) {
+  transform: rotate(-1.2deg);
+}
+
+/* Responsif Tablet */
+@media (max-width: 992px) {
+  .photo-layout {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 140px;
+    gap: 14px;
+  }
+}
+
+/* Responsif HP */
+@media (max-width: 600px) {
+  .photo-layout {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 130px;
+    gap: 10px;
+  }
+
+  .photo-layout img {
+    transform: rotate(0deg);
+  }
+}
+
+.video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 0;
+  background-color: #f7f1e8;
+  flex-wrap: wrap; /* biar responsif */
+}
+
+/* KOTAK TEKS */
+.video-left {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px 25px;
+  text-align: center;
+  z-index: 2;
+}
+
+/* VIDEO THUMBNAIL */
+.video-right {
+  width: 500px;
+  height: 300px;
+  background: url('c:\Users\melynda\Downloads\14.mp4') center/cover no-repeat;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ICON PLAY */
+.video-overlay i {
+  font-size: 70px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: 0.3s ease;
+}
+
+.video-right:hover .video-overlay i {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* TOMBOL */
+.btn-main {
+  background-color: #4f646c;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.btn-main:hover {
+  background-color: #394952;
+}
+
+
+   /* ===== RESERVATION SECTION ===== */
+body.booking {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #fff;
+}
+
+/* ====== BAGIAN UTAMA ====== */
+.reservation {
+  background: url('/images/halaman.jpg') no-repeat center center/cover; /* pastikan file di public/images/ */
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.reservation::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* ====== KONTEN DI TENGAH ====== */
+.overlay-reservation{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.reservation-content h1 {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+/* ====== FORM ====== */
+.booking-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.booking-form input {
+  padding: 12px 16px;
+  font-size: 16px;
+  width: 200px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.booking-form button {
+  padding: 14px 45px;
+  background: #b19874;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.booking-form button:hover {
+  background: #a28763;
+  transform: translateY(-2px);
+}
+
+/* ====== TEXT DI BAWAH FORM ====== */
+.tagline {
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+/* ====== EFEK BLUR DI BAWAH ====== */
+.blur-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(8px); /* ✅ prefiks untuk dukungan Safari/Chrome */
+  backdrop-filter: blur(8px);         /* ✅ properti standar */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 992px) {
+  .booking-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-group input,
+  .booking-form button {
+    width: 250px;
+  }
+}
+
+/* ========== FOOTER STYLE ========== */
+    footer {
+      background-color: #8b7a65; /* Warna coklat lembut seperti contoh */
+      color: #fff;
+      padding: 60px 80px 30px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .footer-logo img {
+      width: 160px;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo p {
+      font-size: 14px;
+      line-height: 1.8;
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-logo .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin-right: 15px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #e0d5c3;
+    }
+
+    .footer-col h4 {
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+      color: #f2f2f2;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+      text-decoration: underline;
+      color: #fff;
+    }
+
+    .footer-subscribe {
+      grid-column: span 4;
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 30px;
+    }
+
+    .footer-subscribe p {
+      font-size: 13px;
+      color: #fff;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-subscribe form {
+      display: flex;
+      gap: 15px;
+      flex: 1;
+      justify-content: flex-end;
+      min-width: 250px;
+    }
+
+    .footer-subscribe input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      padding: 5px 0;
+      color: #fff;
+      width: 150px;
+      font-size: 13px;
+    }
+
+    .footer-subscribe input::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-subscribe button {
+      background: #7a6a57;
+      border: none;
+      color: #fff;
+      padding: 8px 25px;
+      border-radius: 2px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .footer-subscribe button:hover {
+      background: #6c5b49;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom a {
+      color: #fff;
+      margin-left: 25px;
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 800px) {
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+      .footer-subscribe {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-subscribe form {
+        justify-content: flex-start;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -390,6 +859,132 @@
     </div>
   </div>
 
+  <!-- Gallery Section -->
+  <div class="review-wrapper">
+  <div class="stars">★★★★★</div>
+
+  <p class="review-text">
+    Absolute perfection.<br>The service, the decor, the villa, the view, the staff—the everything.<br>
+    It truly feels like you’ve moved to your own private estate.
+  </p>
+  <p class="author">ANNA M. — Google Review</p>
+
+  <div class="photo-layout">
+  <img src="images/foto1.jpg" alt="">
+  <img src="images/foto2.jpg" alt="">
+  <img src="images/foto3.jpg" alt="">
+  <img src="images/foto4.jpg" alt="">
+  <img src="images/foto5.jpg" alt="">
+</div>
+
+<div class="video-section">
+  <div class="video-left">
+    <h3>IS SUPREME</h3>
+    <p>
+      When it comes to our guests, no request <br> is too big and no detail is too small.
+    </p>
+    <a href="#reservation" class="btn-main mt-3">MEMBER</a>
+  </div>
+
+  <div class="video-right" data-bs-toggle="modal" data-bs-target="#reviewVideoModal">
+    <div class="video-overlay">
+      <i class="bi bi-play-fill"></i>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Review Video -->
+<div class="modal fade" id="reviewVideoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="ratio ratio-16x9">
+        <iframe id="reviewVideo" src="" title="Review Video" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Reservation Section -->
+  <section class="reservation">
+    <div class="overlay-reservation">
+      <div class="reservation-content">
+        <h1>FIND YOUR CALM AT VILLA AL RASYID</h1>
+
+        <form class="booking-form">
+          <div class="form-group">
+            <label>NUMBER OF NIGHTS</label>
+            <input type="text" placeholder="DD/MM/YYYY">
+          </div>
+          <div class="form-group">
+            <label>ADULTS</label>
+            <input type="number" placeholder="1" min="1">
+          </div>
+          <div class="form-group">
+            <label>CHILDREN</label>
+            <input type="number" placeholder="1" min="0">
+          </div>
+          
+          <button type="submit">SEND</button>
+          </form>
+        <p class="tagline">UNLOCK THE BEST RATES & EXCLUSIVE PERKS HERE</p>
+      </div>
+    </div>
+  </section>
+
+  <!--Footer-->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="Villa Al-Rasyid Logo">
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>ABOUT</h4>
+        <ul>
+          <li><a href="{{ url('/our_blog') }}">Our Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>CONTACT US</h4>
+        <ul>
+          <li><a href="#">Send a Message</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>LOCATION</h4>
+        <p>Jl. Pelita Kp. Baru Jeruk<br>Cisarua Bogor, Jawa Barat</p>
+      </div>
+    </div>
+
+    <div class="footer-subscribe">
+    <p>STAY IN TOUCH FOR EXCLUSIVE OFFERS, SPECIALS AND NEWS.</p>
+      <form id="subscribeForm">
+        <input type="text" placeholder="FIRST NAME" required>
+        <input type="email" placeholder="EMAIL" required>
+        <button type="submit">SUBSCRIBE</button>
+      </form>
+    </div>
+
+    <div class="footer-bottom">
+      <span>VILLA AL – RASYID 1997.</span>
+      <div>
+    <a href="{{ url('/kebijakan_privasi') }}">Kebijakan Privasi</a>
+     <a href="{{ url('/persyaratan_pengguna') }}">Persyaratan Pengguna</a>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </footer>
+
   <!-- ===== Scripts ===== -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -507,6 +1102,13 @@
       },{threshold:.2});
       io.observe(el);
     })();
+
+    // Simple subscribe alert
+    document.getElementById('subscribeForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Terima kasih sudah berlangganan informasi dari Villa Al-Rasyid!');
+      this.reset();
+    });
   </script>
 </body>
 </html>
