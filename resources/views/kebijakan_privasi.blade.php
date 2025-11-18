@@ -322,8 +322,7 @@
       <div class="footer-col">
         <h4>ABOUT</h4>
         <ul>
-          <li><a href="#">OUR STORY</a></li>
-          <li><a href="#">OUR BLOG</a></li>
+           <li><a href="{{ url('/our_blog') }}">Our Blog</a></li>
         </ul>
       </div>
 
@@ -353,7 +352,7 @@
     <div class="footer-bottom">
       <span>VILLA AL – RASYID 1997.</span>
       <div>
-    <a href="{{ url('/kebijakan-privasi') }}">Kebijakan Privasi</a>
+    <a href="{{ url('/kebijakan_privasi') }}">Kebijakan Privasi</a>
      <a href="{{ url('/persyaratan_pengguna') }}">Persyaratan Pengguna</a>
   </div>
 </div>
