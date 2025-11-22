@@ -385,7 +385,7 @@
       <img src="gambar3.jpg" alt="Kuliner Puncak">
       <h3>Kuliner Khas Puncak</h3>
       <p>
-        Nasi Timbel jadi kuliner khas Sunda paling populer di Puncak. Selain itu, masih banyak makanan khas lain seperti Sate Maranggi, Soto Mie Bogor, dan Nasi Liwet yang wajib dicoba! 🍽️
+        Nasi Timbel jadi kuliner khas Sunda paling populer di Puncak. Selain itu, masih banyak makanan khas lain seperti Sate Maranggi, Soto Mie Bogor, dan Nasi Liwet yang wajib dicoba! 🍽
       </p>
     </div>
 
