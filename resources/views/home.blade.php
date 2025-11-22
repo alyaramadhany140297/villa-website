@@ -360,61 +360,7 @@
     </div>
   </section>
 
-  <!-- ===== OUR BLOG ===== -->
-  <section id="our-blog" class="blog">
-    <div class="lead-top">ALL <span style="opacity:.5">—</span> explore puncak bogor</div>
-    <h2>Stories Around Villa Al Rasyid</h2>
-
-    <div class="blog-grid">
-      <!-- Card 1 -->
-      <article class="blog-card">
-        <div class="thumb">
-          <img src="/images/blog/kampung-rimba.jpg" alt="Kampung Rimba" />
-          <span class="tag">Nature</span>
-        </div>
-        <div class="content">
-          <h3>Kampung Rimba: Cabin Hidden Gem</h3>
-          <p>Suasana hutan pinus yang sejuk, cocok untuk short escape & foto-foto manis sebelum ke villa.</p>
-          <div class="meta">
-            <span>by Admin</span>
-            <a href="#">Read more</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="blog-card">
-        <div class="thumb">
-          <img src="/images/blog/teh-gunung.jpg" alt="Perkebunan Teh Puncak" />
-          <span class="tag">Outdoor</span>
-        </div>
-        <div class="content">
-          <h3>Jalur Santai di Perkebunan Teh</h3>
-          <p>Running tipis atau jalan pagi di hamparan teh dekat Villa Al Rasyid — segar & menenangkan.</p>
-          <div class="meta">
-            <span>5 min read</span>
-            <a href="#">Read more</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="blog-card">
-        <div class="thumb">
-          <img src="/images/blog/nasi-timbel.jpg" alt="Kuliner Puncak" />
-          <span class="tag">Food</span>
-        </div>
-        <div class="content">
-          <h3>Nasi Timbel & Kuliner Khas Puncak</h3>
-          <p>Pilihan kuliner favorit keluarga: nasi timbel, sate maranggi, susu murni, dan kopi hangat.</p>
-          <div class="meta">
-            <span>Guide</span>
-            <a href="#">Read more</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
+  
 
   <!-- Reservation -->
   <section class="reservation" id="reservasi">
@@ -442,7 +388,9 @@
 
       <div class="footer-col">
         <h4>ABOUT</h4>
-        <ul><li><a href="#our-blog">Our Blog</a></li></ul>
+        <ul><li><a href="{{ route('our_blog') }}">Our Blog</a></li></ul>
+
+
       </div>
 
       <div class="footer-col">
@@ -652,8 +600,13 @@
       modalImg.addEventListener("load",()=>modalImg.classList.add("lb-in"));
     })();
 
-    // Subscribe dummy
-    document.getElementById("subscribeForm").addEventListener("submit",function(e){ e.preventDefault(); alert("Terima kasih sudah berlangganan informasi dari Villa Al-Rasyid!"); this.reset(); });
-  </script>
+    const sf = document.getElementById('subscribeForm');
+  if (sf) {
+    sf.addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Terima kasih sudah berlangganan informasi dari Villa Al-Rasyid!');
+      this.reset();
+    });
+  }
 </body>
 </html>

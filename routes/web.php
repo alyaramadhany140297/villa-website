@@ -7,8 +7,9 @@ Route::get('/', function () {
 });
 
 Route::get('/our_blog', function () {
-    return view('our_blog');
-});
+    return view('our_blog'); // resources/views/our_blog.blade.php
+})->name('our_blog');
+
 
 Route::get('/kebijakan_privasi', function () {
     return view('kebijakan_privasi');

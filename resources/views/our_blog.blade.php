@@ -400,56 +400,50 @@
 
    <!--Footer-->
   <footer>
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="images/logo.png" alt="Villa Al-Rasyid Logo">
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>ABOUT</h4>
-        <ul>
-           <li><a href="{{ url('/our_blog') }}">Our Blog</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>CONTACT US</h4>
-        <ul>
-          <li><a href="#">Send a Message</a></li>
-          <li><a href="#">Support</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>LOCATION</h4>
-        <p>Jl. Pelita Kp. Baru Jeruk<br>Cisarua Bogor, Jawa Barat</p>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="{{ asset('images/logo.png') }}" alt="Villa Al-Rasyid Logo">
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
 
-    <div class="footer-subscribe">
-      <p>STAY IN TOUCH FOR EXCLUSIVE OFFERS, SPECIALS AND NEWS.</p>
-      <form id="subscribeForm">
-        <input type="text" placeholder="FIRST NAME" required>
-        <input type="email" placeholder="EMAIL" required>
-        <button type="submit">SUBSCRIBE</button>
-      </form>
+    <div class="footer-col">
+      <h4>ABOUT</h4>
+      <ul>
+        <li><a href="{{ route('our_blog') }}">Our Blog</a></li>
+      </ul>
     </div>
 
-    <div class="footer-bottom">
-      <span>VILLA AL – RASYID 1997.</span>
-      <div>
-    <a href="{{ url('/kebijakan_privasi') }}">Kebijakan Privasi</a>
-    <a href="{{ url('/persyaratan_pengguna') }}">Persyaratan Pengguna</a>
+    <div class="footer-col">
+      <h4>CONTACT US</h4>
+      <ul>
+        <li><a href="#">Send a Message</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>LOCATION</h4>
+      <p>Jl. Pelita Kp. Baru Jeruk<br>Cisarua Bogor, Jawa Barat</p>
+    </div>
   </div>
-</div>
 
-      </div>
+  <div class="footer-subscribe">
+    ...
+  </div>
+
+  <div class="footer-bottom">
+    <span>VILLA AL – RASYID 1997.</span>
+    <div>
+      <a href="{{ url('/kebijakan_privasi') }}">Kebijakan Privasi</a>
+      <a href="{{ url('/persyaratan_pengguna') }}">Persyaratan Pengguna</a>
     </div>
+  </div>
+</footer>
+
   </footer>
 
 <script>
