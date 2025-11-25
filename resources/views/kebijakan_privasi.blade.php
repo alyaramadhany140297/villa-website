@@ -154,36 +154,93 @@
     @media (prefers-reduced-motion: reduce){
       .policy-card { transition:none !important; }
     }
+
+    /* ==== Navbar: kapsul lokasi kecil & di pojok kanan ==== */
+
+/* tampilan kapsul lebih ringkas */
+.navbar-right{
+  padding: 6px 10px;
+  gap: 6px;
+  border-radius: 999px;
+  background: rgba(229,199,190,.18);
+  border: 1px solid rgba(229,199,190,.42);
+  line-height: 1;
+}
+.navbar-right i{ font-size: 14px; }
+.navbar-right .right-text small{ display: none; } /* sembunyikan baris kedua */
+.navbar-right .right-text strong{
+  font-size: 12px;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+/* posisikan di pojok kanan pada desktop, menu tetap di tempatnya */
+@media (min-width: 992px){
+  .navbar{
+    display: grid;
+    grid-template-columns: 1fr minmax(0,max-content) 1fr; /* kiri | brand | kanan */
+    grid-auto-rows: auto;
+    align-items: center;
+  }
+  .navbar .navbar-brand{
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    margin: 0;
+  }
+  .navbar .nav-links{
+    grid-column: 2;
+    grid-row: 2;               /* menu tetap di baris kedua, tengah */
+    justify-self: center;
+    position: relative; left:auto; transform:none; margin-left:0 !important;
+  }
+  .navbar .navbar-right{
+    grid-column: 3;            /* pojok kanan atas */
+    grid-row: 1;
+    justify-self: end;
+  }
+}
+
+/* mobile: tetap di kanan, ringkas */
+@media (max-width: 991.98px){
+  .navbar-right{
+    margin-left: auto;         /* dorong ke kanan */
+  }
+}
   </style>
 </head>
 <body>
 
-  <!-- ================= NAVBAR ================= -->
+   <!-- ================= NAVBAR ================= -->
   <nav class="navbar">
     <div class="menu-area">
       <button class="menu-icon" aria-label="Buka menu">☰ <span>MENU</span></button>
     </div>
-    <a class="navbar-brand" href="#hero" aria-label="Villa Al Rasyid">
+
+    <!-- BRAND: arahkan ke home section #hero -->
+    <a class="navbar-brand" href="{{ url('/') }}#hero" aria-label="Villa Al Rasyid">
       <span class="brand-main">VILLA AL RASYID</span>
       <span class="brand-sub">VILLA · RESORT · PUNCAK</span>
     </a>
-   <a class="navbar-right"
-   href="https://www.google.com/maps?q=Villa+Al+Rasyid,+Puncak+Bogor"
-   target="_blank" rel="noopener noreferrer"
-   aria-label="Buka lokasi di Google Maps">
-  <i class="bi bi-geo-alt-fill"></i>
-  <div class="right-text">
-    <strong>Puncak Bogor</strong>
-  </div>
-</a>
 
+    <!-- Kapsul lokasi: tetap ke Google Maps, hilangkan </a> nyasar -->
+    <a class="navbar-right"
+       href="https://www.google.com/maps?q=Villa+Al+Rasyid,+Puncak+Bogor"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Buka lokasi di Google Maps">
+      <i class="bi bi-geo-alt-fill"></i>
+      <div class="right-text">
+        <strong>Puncak Bogor</strong>
+      </div>
     </a>
+
+    <!-- MENU: arahkan ke section di halaman home -->
     <div class="nav-links">
-      <a href="#hero">Beranda</a>
-      <a href="#about">Tentang</a>
-      <a href="#facility">Fasilitas</a>
-      <a href="#review-section">Ulasan</a>
-      <a href="#reservasi">Reservasi</a>
+      <a href="{{ url('/') }}#hero">Beranda</a>
+      <a href="{{ url('/') }}#about">Tentang</a>
+      <a href="{{ url('/') }}#facility">Fasilitas</a>
+      <a href="{{ url('/') }}#review-section">Ulasan</a>
+      <a href="{{ url('/') }}#reservasi">Reservasi</a>
     </div>
   </nav>
 
@@ -211,11 +268,12 @@
     </div>
   </main>
 
-  <!-- ================= FOOTER ================= -->
+   <!-- ================= FOOTER ================= -->
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="images/logo_2-removebg-preview(1).png" alt="Logo Villa Al Rasyid"/>
+        <img src="images/logo.png" alt="Logo Villa Al Rasyid"/>
+         <img src="images/logo_kami.png" alt="Logo Villa Al Rasyid"/>
         <div class="social-icons">
           <a href="https://www.instagram.com/villa_alrasyid_puncak?igsh=eHR4N2Q5aHp3Y2l0" target="_blank" rel="noopener noreferrer" aria-label="Instagram Villa Al Rasyid"><i class="fab fa-instagram" aria-hidden="true"></i></a>
           <a href="https://www.tiktok.com/@villaalrasyidpuncak?_r=1&_t=ZS-91bSYRoQD9r" target="_blank" rel="noopener noreferrer" aria-label="TikTok Villa Al Rasyid"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
@@ -332,7 +390,7 @@
       document.querySelector(".navbar").classList.toggle("scrolled", window.scrollY > 80);
     });
 
-    // Mobile menu overlay
+     // Mobile menu overlay
     (function(){
       const navbar = document.querySelector(".navbar");
       const menuBtn = document.querySelector(".menu-icon");
@@ -342,7 +400,7 @@
       navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navbar.classList.remove("nav-open")));
     })();
 
-    // Subscribe form (dummy)
+   // Subscribe form (dummy)
     (function(){
       const sf = document.getElementById('subscribeForm');
       if (!sf) return;

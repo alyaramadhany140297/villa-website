@@ -271,6 +271,7 @@
   font-style: normal;
   color: #6e655f;
 }
+
 /* ==== Navbar: kapsul lokasi kecil & di pojok kanan ==== */
 
 /* tampilan kapsul lebih ringkas */
@@ -381,7 +382,7 @@
       <div class="row g-4 align-items-center">
         <div class="col-lg-6">
           <div class="video-box" data-bs-toggle="modal" data-bs-target="#videoModal">
-            <video src="video/video1.mp4" muted playsinline loop poster="images/video-thumb.jpg"></video>
+            <video src="images/video1.mp4.mp4" muted playsinline loop poster="images/villa3.jpg"></video>
             <div class="video-overlay"><i class="bi bi-play-fill" aria-hidden="true"></i></div>
           </div>
         </div>
@@ -403,7 +404,7 @@
       <div class="modal-content bg-transparent border-0">
         <div class="ratio ratio-16x9">
           <video id="villaVideo" controls playsinline>
-            <source src="video/video1.mp4" type="video/mp4"/>
+            <source src="images/video1.mp4" type="video/mp4"/>
             Browser Anda tidak mendukung pemutaran video HTML5.
           </video>
         </div>
@@ -492,7 +493,7 @@
       <div class="photo-layout">
         <img src="/images/review one.jpg" alt="Kolam renang Villa Al Rasyid" loading="lazy" decoding="async"/>
         <img src="/images/review two.jpg" alt="Kamar tidur Villa Al Rasyid" loading="lazy" decoding="async"/>
-        <img src="/images/review three.jpg" alt="Ruang keluarga Villa Al Rasyid" loading="lazy" decoding="async"/>
+        <img src="/images/berenang_teman.jpg" alt="Ruang keluarga Villa Al Rasyid" loading="lazy" decoding="async"/>
         <img src="/images/review four.jpg" alt="Balkon Villa Al Rasyid" loading="lazy" decoding="async"/>
         <img src="/images/review five.jpg" alt="Area makan Villa Al Rasyid" loading="lazy" decoding="async"/>
         <img src="/images/review six.jpg" alt="Pemandangan malam Villa Al Rasyid" loading="lazy" decoding="async"/>
@@ -518,7 +519,8 @@
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="images/logo_2-removebg-preview(1).png" alt="Logo Villa Al Rasyid"/>
+        <img src="images/logo.png" alt="Logo Villa Al Rasyid"/>
+         <img src="images/logo_kami.png" alt="Logo Villa Al Rasyid"/>
         <div class="social-icons">
           <a href="https://www.instagram.com/villa_alrasyid_puncak?igsh=eHR4N2Q5aHp3Y2l0" target="_blank" rel="noopener noreferrer" aria-label="Instagram Villa Al Rasyid"><i class="fab fa-instagram" aria-hidden="true"></i></a>
           <a href="https://www.tiktok.com/@villaalrasyidpuncak?_r=1&_t=ZS-91bSYRoQD9r" target="_blank" rel="noopener noreferrer" aria-label="TikTok Villa Al Rasyid"><i class="fab fa-tiktok" aria-hidden="true"></i></a>

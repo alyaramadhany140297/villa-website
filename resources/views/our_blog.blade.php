@@ -195,32 +195,36 @@ footer{
 </head>
 <body>
 
-  <!-- ================= NAVBAR ================= -->
+    <!-- ================= NAVBAR ================= -->
   <nav class="navbar">
     <div class="menu-area">
       <button class="menu-icon" aria-label="Buka menu">☰ <span>MENU</span></button>
     </div>
-    <a class="navbar-brand" href="#hero" aria-label="Villa Al Rasyid">
+
+    <!-- BRAND: arahkan ke home section #hero -->
+    <a class="navbar-brand" href="{{ url('/') }}#hero" aria-label="Villa Al Rasyid">
       <span class="brand-main">VILLA AL RASYID</span>
       <span class="brand-sub">VILLA · RESORT · PUNCAK</span>
     </a>
-   <a class="navbar-right"
-   href="https://www.google.com/maps?q=Villa+Al+Rasyid,+Puncak+Bogor"
-   target="_blank" rel="noopener noreferrer"
-   aria-label="Buka lokasi di Google Maps">
-  <i class="bi bi-geo-alt-fill"></i>
-  <div class="right-text">
-    <strong>Puncak Bogor</strong>
-  </div>
-</a>
 
+    <!-- Kapsul lokasi: tetap ke Google Maps, hilangkan </a> nyasar -->
+    <a class="navbar-right"
+       href="https://www.google.com/maps?q=Villa+Al+Rasyid,+Puncak+Bogor"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Buka lokasi di Google Maps">
+      <i class="bi bi-geo-alt-fill"></i>
+      <div class="right-text">
+        <strong>Puncak Bogor</strong>
+      </div>
     </a>
+
+    <!-- MENU: arahkan ke section di halaman home -->
     <div class="nav-links">
-      <a href="#hero">Beranda</a>
-      <a href="#about">Tentang</a>
-      <a href="#facility">Fasilitas</a>
-      <a href="#review-section">Ulasan</a>
-      <a href="#reservasi">Reservasi</a>
+      <a href="{{ url('/') }}#hero">Beranda</a>
+      <a href="{{ url('/') }}#about">Tentang</a>
+      <a href="{{ url('/') }}#facility">Fasilitas</a>
+      <a href="{{ url('/') }}#review-section">Ulasan</a>
+      <a href="{{ url('/') }}#reservasi">Reservasi</a>
     </div>
   </nav>
 
@@ -233,12 +237,12 @@ footer{
     <!-- Konten -->
     <div class="explore-container">
       <div class="explore-item">
-        <img src="/gambar1.jpg" alt="Kampung Rimba">
+        <img src="images/kampung.jpg" alt="Kampung Rimba">
         <h3>Kampung Rimba by Annha</h3>
       </div>
 
       <div class="explore-item">
-        <img src="/gambar2.jpg" alt="Kebun Teh">
+        <img src="images/kebun.tea.jpg" alt="Kebun Teh">
         <h3>Keindahan Alam di Sekitar Villa Al Rasyid</h3>
         <p>
           Kebun Teh Gunung Mas dan Kampung Rimba Camp terletak dekat dengan Villa Al Rasyid — cocok untuk wisata alam singkat yang menenangkan.
@@ -246,7 +250,7 @@ footer{
       </div>
 
       <div class="explore-item">
-        <img src="/gambar3.jpg" alt="Kuliner Puncak">
+        <img src="images/makanan_khas.jpg" alt="Kuliner Puncak">
         <h3>Kuliner Khas Puncak</h3>
         <p>
           Nasi Timbel jadi kuliner khas Sunda paling populer di Puncak. Selain itu, masih banyak makanan khas lain seperti Sate Maranggi, Soto Mie Bogor, dan Nasi Liwet yang wajib dicoba! 🍽
@@ -254,7 +258,7 @@ footer{
       </div>
 
       <div class="explore-item">
-        <img src="/gambar4.jpg" alt="Interior Villa">
+        <img src="images/kitchen.jpg" alt="Interior Villa">
         <h3>Kenali Villa Al Rasyid Lebih Dekat</h3>
         <p>
           Villa Al Rasyid — Tempat peristirahatan tenang dengan udara sejuk dan pemandangan hijau. Suasana damai dan fasilitas nyaman menjadikannya pilihan ideal untuk beristirahat dan berkumpul bersama keluarga.
@@ -267,7 +271,8 @@ footer{
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="images/logo_2-removebg-preview(1).png" alt="Logo Villa Al Rasyid"/>
+        <img src="images/logo.png" alt="Logo Villa Al Rasyid"/>
+         <img src="images/logo_kami.png" alt="Logo Villa Al Rasyid"/>
         <div class="social-icons">
           <a href="https://www.instagram.com/villa_alrasyid_puncak?igsh=eHR4N2Q5aHp3Y2l0" target="_blank" rel="noopener noreferrer" aria-label="Instagram Villa Al Rasyid"><i class="fab fa-instagram" aria-hidden="true"></i></a>
           <a href="https://www.tiktok.com/@villaalrasyidpuncak?_r=1&_t=ZS-91bSYRoQD9r" target="_blank" rel="noopener noreferrer" aria-label="TikTok Villa Al Rasyid"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
@@ -376,8 +381,7 @@ footer{
     </div>
   </div>
 
-
-    <!-- Scripts -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Navbar: shrink on scroll
