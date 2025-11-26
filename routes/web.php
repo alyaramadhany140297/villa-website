@@ -21,7 +21,6 @@ Route::get('/facility', function () {
 })->name('facility'); 
 
 // REVIEW
-// Ganti rute lama dengan Controller baru agar data bisa diambil dari database.
 Route::get('/review', [ReviewPublicController::class, 'index'])->name('review'); 
 
 // RESERVASI
@@ -34,15 +33,18 @@ Route::get('/our-blog', function () {
     return view('our_blog'); 
 })->name('our_blog'); 
 
-// --- RUTE OTENTIKASI (SOLUSI UNTUK ERROR 'Route [login] not defined') ---
-
-// 1. Rute untuk Menampilkan Halaman Login. 
-// Ini memberi nama 'login' agar middleware 'auth' tidak error saat redirect.
+// 1. Rute untuk Menampilkan Halaman Login (Memberi nama 'login')
 Route::get('/login', function () {
-    // Kita asumsikan Anda akan membuat resources/views/auth/login.blade.php
     return view('auth.login'); 
 })->name('login'); 
 
+// 2. Rute Logout
+Route::post('/logout', function () {
+    if (auth()->check()) {
+        auth()->logout(); 
+    }
+    return redirect('/');
+})->name('logout');
 // 2. Rute Logout
 // Anda harus menambahkan Controller autentikasi yang benar di sini agar logout berfungsi.
 // Untuk saat ini, kita gunakan fungsi dasar PHP untuk logout.
@@ -66,3 +68,16 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/our_blog', function () {
+    return view('our_blog'); // resources/views/our_blog.blade.php
+})->name('our_blog');
+
+
+Route::get('/kebijakan_privasi', function () {
+    return view('kebijakan_privasi');
+});
+
+Route::get('/persyaratan_pengguna', function () {
+    return view('persyaratan_pengguna');
+});
+
