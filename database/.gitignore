@@ -1,1 +1,29 @@
-*.sqlite*
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\User; // <-- BARIS INI HILANG DAN HARUS DITAMBAHKAN!
+use Illuminate\Support\Facades\Hash;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        // 1. Membuat akun Admin
+        // Menggunakan Model User yang sudah di-import di atas
+        User::updateOrCreate(
+            ['email' => 'admin@example.com'], // Kunci pencarian
+            [
+                'name' => 'Admin Villa',
+                'password' => Hash::make('password123'), // Password DENGAN ENKRIPSI
+            ]
+        );
+
+        // 2. Anda bisa menambahkan user test lain di sini jika diperlukan
+        // User::factory(10)->create(); 
+    }
+}

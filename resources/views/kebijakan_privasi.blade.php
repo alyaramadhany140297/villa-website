@@ -272,7 +272,7 @@
   <footer>
     <div class="footer-container">
       <div class="footer-logo">
-        <img src="images/logo.png" alt="Logo Villa Al Rasyid"/>
+        <img src="images/logovillaalrasyid1.png" alt="Logo Villa Al Rasyid"/>
          <img src="images/logo_kami.png" alt="Logo Villa Al Rasyid"/>
         <div class="social-icons">
           <a href="https://www.instagram.com/villa_alrasyid_puncak?igsh=eHR4N2Q5aHp3Y2l0" target="_blank" rel="noopener noreferrer" aria-label="Instagram Villa Al Rasyid"><i class="fab fa-instagram" aria-hidden="true"></i></a>

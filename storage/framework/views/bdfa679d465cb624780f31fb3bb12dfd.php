@@ -20,24 +20,24 @@
         <h1>LOGIN ADMIN</h1>
         
         <!-- Menampilkan pesan error validasi (seperti email/password salah) -->
-        @if ($errors->any())
+        <?php if($errors->any()): ?>
             <div class="alert-error">
                 <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
+                    <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li><?php echo e($error); ?></li>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </ul>
             </div>
-        @endif
+        <?php endif; ?>
 
         <!-- FORM ACTION MENGGUNANAKAN POST KE /login -->
         <form method="POST" action="/login">
             <!-- INI ADALAH CSRF TOKEN YANG KITA BUTUHKAN UNTUK MENGHILANGKAN ERROR 419 -->
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 
             <div class="form-group">
                 <!-- INPUT EMAIL -->
-                <input type="email" name="email" class="form-control" placeholder="Email Admin" required autofocus value="{{ old('email') }}">
+                <input type="email" name="email" class="form-control" placeholder="Email Admin" required autofocus value="<?php echo e(old('email')); ?>">
             </div>
 
             <div class="form-group">
@@ -49,4 +49,4 @@
         </form>
     </div>
 </body>
-</html>
+</html><?php /**PATH C:\Users\T470s\villa-website\resources\views/auth/login.blade.php ENDPATH**/ ?>

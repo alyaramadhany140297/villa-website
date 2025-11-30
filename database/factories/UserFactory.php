@@ -1,44 +1,36 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Seeders;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
- */
-class UserFactory extends Factory
+class AdminUserSeeder extends Seeder
 {
     /**
-     * The current password being used by the factory.
+     * Run the database seeds.
      */
-    protected static ?string $password;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    public function run(): void
     {
-        return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
-        ];
-    }
+        // Pastikan tabel 'users' ada
+        if (DB::getSchemaBuilder()->hasTable('users')) {
+            
+            // Hapus data lama (jika ada) untuk menghindari duplikasi
+            DB::table('users')->where('email', 'admin@example.com')->delete();
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     */
-    public function unverified(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
+            // Masukkan data admin baru
+            DB::table('users')->insert([
+                'name' => 'Admin Villa',
+                'email' => 'admin@example.com',
+                'password' => Hash::make('password123'), // Password: password123
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            
+            echo "Admin user created: admin@example.com\n";
+        } else {
+            echo "Table 'users' does not exist. Please run the default migrations first.\n";
+        }
     }
 }

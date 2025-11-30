@@ -554,8 +554,8 @@
     <div class="footer-bottom">
       <span>Villa Al Rasyid © 1997.</span>
       <div>
-        <a href="{{ url('/kebijakan_privasi') }}">Kebijakan Privasi</a>
-        <a href="{{ url('/persyaratan_pengguna') }}">Persyaratan Pengguna</a>
+        <a href="<?php echo e(url('/kebijakan_privasi')); ?>">Kebijakan Privasi</a>
+        <a href="<?php echo e(url('/persyaratan_pengguna')); ?>">Persyaratan Pengguna</a>
       </div>
     </div>
   </footer>
@@ -773,4 +773,4 @@
     })();
   </script>
 </body>
-</html>
+</html><?php /**PATH C:\Users\T470s\villa-website\resources\views/home.blade.php ENDPATH**/ ?>
